@@ -46,17 +46,20 @@ createApp({
         selectImg: function (indexElement) {
             this.activeItem = indexElement;
         },
-        autoplay: function () {
-            setInterval(() => {
+        autoPlay: function () {
+            timerPlay = setInterval(() => {
                 this.activeItem++;
                 if (this.activeItem > this.slides.length - 1) {
                     this.activeItem = 0
                 }
             }, 3000);
         },
+        stopAutoPlayOver: function () {
+            clearInterval(timerPlay)
+        }
     },
     created() {
-        this.autoplay()
+        this.autoPlay()
     }
 }).mount('#app');
 
