@@ -45,6 +45,18 @@ createApp({
         },
         selectImg: function (indexElement) {
             this.activeItem = indexElement;
-        }
+        },
+        autoplay: function () {
+            setInterval(() => {
+                this.activeItem++;
+                if (this.activeItem > this.slides.length - 1) {
+                    this.activeItem = 0
+                }
+            }, 3000);
+        },
+    },
+    created() {
+        this.autoplay()
     }
 }).mount('#app');
+
